@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
+//编写一个控制台程序，能够从键盘上接收两个数字，然后计算这两个数字的积
 namespace topic5
 {
     public partial class Form1 : Form
