@@ -126,9 +126,7 @@ namespace homework3
         static void Main(string[] args)
         {
             DrawGraphics A = new DrawGraphics();
-            
-
-        }
+         }
 
         
     }
