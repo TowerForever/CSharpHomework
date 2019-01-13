@@ -9,20 +9,28 @@ namespace homework4_2
     {
         static int i = 1;
         public int Number;
+        public int Moneyamount;
         public string Goods;//尝试用枚举类型
         public string Customers;
-        public Order( string customers,string goods)
+
+        public Order(string customers, string goods)
         {
-            this.Number = i;i++;
+            this.Number = i; i++;
             this.Goods = goods;
             this.Customers = customers;
+            this.Moneyamount = 0;
         }
-       
+
     }
-    
+
     public class OrderService {
         public List<Order> Orderlists = new List<Order>();
-        //Orderlists[0]=new Order("M","l");
+
+        public OrderService(List<Order> orderlists)
+        {
+            Orderlists = orderlists;
+        }
+
         public void AddOrder(string customers, string goods)
         {
             Order another = new Order(customers,goods);
@@ -39,7 +47,6 @@ namespace homework4_2
                 }
             }
             catch { Console.WriteLine("无效的删除"); }
-            //Orderlists.RemoveAt(Orderlists.IndexOf(Order.Number==number));
         }
         public void DeleteOrder2(string customers)
         {
@@ -56,6 +63,9 @@ namespace homework4_2
         }
     }
     public class OrderDetails :OrderService{
+        public OrderDetails(List<Order> orderlists) : base(orderlists)
+        {
+        }
 
         public Order SearchOrder1(int number)
         {
@@ -92,9 +102,12 @@ namespace homework4_2
     {
         static void Main(string[] args)
         {
-           // OrderService order1;
-            //order1.AddOrder("Mike", "shoes");
-           
+            List<Order> orderlists = new List<Order>();
+            Order s1 = new Order("liiii", "apple");
+            Order s2 = new Order("wang", "banana");
+            orderlists.Add(s1); orderlists.Add(s2);
+
+            OrderService lll = new OrderService(orderlists);
         }
     }
 }
